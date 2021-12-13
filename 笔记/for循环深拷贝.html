@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //   // 无function [] {}
+    //   const obj = { a: 1, b: 2, c: 3 };
+    //   function cloneObj(t) {
+    //     let temp = {};
+    //     for (let k in t) {
+    //       temp[k] = t[k];
+    //     }
+    //     return temp;
+    //   }
+    //   const newObj = cloneObj(obj);
+    //   newObj.a = 5;
+    //   console.log(newObj, obj);
+
+    //   // 无function []
+    //   const obj = {
+    //     under: undefined,
+    //     name: "原",
+    //     o: {
+    //       name: "一",
+    //       son: {
+    //         name: "二",
+    //       },
+    //     },
+    //   };
+    //   function cloneObj(t) {
+    //     if (typeof t === "object") {
+    //       let temp = {};
+    //       for (let k in t) {
+    //         temp[k] = cloneObj(t[k]);
+    //       }
+    //       return temp;
+    //     } else {
+    //       return t;
+    //     }
+    //   }
+    //   const newObj = cloneObj(obj);
+    //   newObj.o.name = 5;
+    //   console.log(newObj, obj);
+
+
+    // // 无function
+    // const obj = {
+    //   under: undefined,
+    //   name: "原",
+    //   o: {
+    //     name: "一",
+    //     son: {
+    //       name: "二",
+    //     },
+    //   },
+    //   arrs: [1, 2, 3]
+    // };
+
+    // function cloneObj(t) {
+    //   if (typeof t === "object") {
+    //     let temp = Array.isArray(t) ? [] : {};
+    //     for (let k in t) {
+    //       temp[k] = cloneObj(t[k]);
+    //     }
+    //     return temp;
+    //   } else {
+    //     return t;
+    //   }
+    // }
+    // const newObj = cloneObj(obj);
+    // newObj.o.name = 5;
+    // newObj.arrs[2] = 5;
+    // console.log(newObj, obj);
+
+
+    // 无function（未完成 会报错）
+    const obj = {
+      under: undefined,
+      name: "原",
+      o: {
+        name: "一",
+        son: {
+          name: "二",
+        },
+      },
+      arrs: [1, 2, 3]
+    };
+
+    obj.obj = obj
+
+    function cloneObj(t) {
+      if (typeof t === "object") {
+        let temp = Array.isArray(t) ? [] : {};
+        for (let k in t) {
+          temp[k] = cloneObj(t[k]);
+        }
+        return temp;
+      } else {
+        return t;
+      }
+    }
+    const newObj = cloneObj(obj);
+    newObj.o.name = 5;
+    // newObj.arrs[2] = 5;
+    console.log(newObj, obj);
+    
+  </script>
+  </script>
+</body>
+
+</html>

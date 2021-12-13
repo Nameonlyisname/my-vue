@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let arr = [
+        {
+          id: 1,
+          name: "第一层菜单",
+          pid: 0,
+        },
+        {
+          id: 2,
+          name: "第二层菜单",
+          pid: 1,
+        },
+        {
+          id: 3,
+          name: "第二层菜单",
+          pid: 1,
+        },
+        {
+          id: 4,
+          name: "第三层菜单",
+          pid: 2,
+        },
+        {
+          id: 5,
+          name: "第四层菜单",
+          pid: 3,
+        },
+      ];
+
+      function arrayToTree(arrObj) {
+        let result = [],
+          itemMap = {};
+
+        for (const item of arrObj) {
+          let { id, pid } = item;
+
+          // 增加children属性
+          itemMap[id] = {
+            ...item,
+            children: [],
+          };
+
+          let temp = itemMap[id];
+          if (pid === 0) {
+            result.push(temp);
+          } else {
+            itemMap[pid].children.push(temp);
+          }
+        }
+
+        return result;
+      }
+
+      console.log(arrayToTree(arr));
+
+      let json = {
+        管理员: [1, 2, 3, 4],
+        菜单: [5, 6, 7, , 9, , , , ,],
+        重复:[1,2,3]
+      }; 
+      let newArrs = [...new Set(Object.values(json).flat())];
+      console.log(newArrs);
+    </script>
+  </body>
+</html>
