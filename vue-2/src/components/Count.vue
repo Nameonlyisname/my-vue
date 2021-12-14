@@ -9,13 +9,13 @@
     </select>
     <button @click="increment(n)">+</button>
     <button @click="decrement(n)">-</button>
-    <button @click="incrementOdd">和为奇数加一</button>
-    <button @click="incrementWait">等等再加</button>
+    <button @click="incrementOdd(n)">和为奇数加一</button>
+    <button @click="incrementWait(n)">等等再加</button>
   </div>
 </template>
 
 <script>
-import { mapState,mapGetters, mapMutations } from "vuex";
+import { mapState,mapGetters, mapMutations,mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -41,14 +41,17 @@ export default {
       decrement:"DECREMENT"
     }),
     
-    incrementOdd() {
-      this.$store.dispatch("incrementOdd", this.n);
-    },
-    incrementWait() {
-      this.$store.dispatch("incrementWait", this.n);
-    },
+    // incrementOdd() {
+    //   this.$store.dispatch("incrementOdd", this.n);
+    // },
+    // incrementWait() {
+    //   this.$store.dispatch("incrementWait", this.n);
+    // },
+    ...mapActions(["incrementOdd","incrementWait"])
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$store)
+  },
 };
 </script>
 
