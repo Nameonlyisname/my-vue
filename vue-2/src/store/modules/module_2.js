@@ -1,6 +1,7 @@
 export default {
+  namespaced:true,
   state: {
-    mul: 0,
+    mul: 1,
   },
   getters: {},
   actions: {},
