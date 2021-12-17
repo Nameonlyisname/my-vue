@@ -7,7 +7,11 @@
     <router-link class="menu" active-class="active" to="/home/homeSon2"
       >HomeSon2</router-link
     >
-    <router-view></router-view>
+
+    <!-- include配合组件中name属性使用 -->
+    <keep-alive :include="['son1']">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ export default {};
   display: block;
   font-size: 20px;
   text-decoration: none;
+  color: black;
 }
 .active {
   color: red;
