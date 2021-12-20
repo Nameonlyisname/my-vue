@@ -14,14 +14,13 @@
           o.title
         }}</router-link> -->
 
-
-
-
         <!-- params传参（字符串，对象） 不能用path -->
         <!-- <router-link :to="`/home/homeSon2/detail/${o.data}/${o.title}`">{{ o.title }}</router-link> -->
-        <router-link :to="{ name: 'detail', params: o}">{{
+        <router-link :to="{ name: 'detail', params: o }">{{
           o.title
         }}</router-link>
+        <button @click="pushShow(o)">push路由</button>
+        <button @click="replaceShow(o)">replace路由</button>
       </li>
     </ul>
     <router-view></router-view>
@@ -38,6 +37,21 @@ export default {
         { title: "消息3", data: "3" },
       ],
     };
+  },
+  methods: {
+    pushShow(o) {
+      // console.log(this.$router);
+      this.$router.push({
+        name: "detail",
+        params: o,
+      });
+    },
+    replaceShow(o) {
+      this.$router.replace({
+        name: "detail",
+        params: o,
+      });
+    },
   },
 };
 </script>

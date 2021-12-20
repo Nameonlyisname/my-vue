@@ -1,42 +1,38 @@
 <template>
-  <div>{{ name }}</div>
-  <div v-for="(o, i) in obj" :key="i">{{ o }}</div>
-  <button @click="hello">点击控制台打印</button>
-  <button @click="changeName">修改obj中name</button>
+  <div>姓名：{{ name }}</div>
+  <div>小说：《{{ story.name }}》——主角：{{ story.prot }}</div>
+  <button @click="handleLog">打印</button>
+  <button @click="changeStory">更改小说信息</button>
 </template>
 
 <script>
-import { h, ref } from "vue";
+import { ref, reactive } from "vue";
 export default {
   name: "App",
-  components: {},
   setup(props) {
-    let name = ref("哈哈");
-    let obj = ref({
-      name: "?",
-      age: 18,
+    // ref用于基本数据
+    //reactive用于对象
+    let name = ref("？？？");
+    let story = reactive({
+      name: "天启预报",
+      prot: "槐诗",
     });
 
-    function hello() {
-      console.log(obj);
+    function handleLog() {
+      console.log(name, story);
     }
 
-    function changeName() {
-      // console.log(name);
-      // console.log(obj);
-      name.value = "?????????";
-      obj.value.name="0.0"
+    function changeStory() {
+      story.name = "从红月开始";
+      story.prot = "单兵";
     }
 
     return {
       name,
-      obj,
-      hello,
-      changeName,
+      story,
+      handleLog,
+      changeStory,
     };
-
-    // 返回一个函数
-    return () => h(<h1>???????????????</h1>);
   },
 };
 </script>

@@ -16,7 +16,7 @@
 export default {
   props: ["data", "title"], //配套路由中的props
   mounted() {
-    console.log(this.$route); 
+    // console.log(this.$route); 
   },
 };
 </script>
