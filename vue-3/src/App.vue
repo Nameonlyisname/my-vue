@@ -1,20 +1,39 @@
-<template> 
+<template>
   <!-- <Computed></Computed> -->
   <!-- <Watch></Watch> -->
-  <WatchEffect></WatchEffect>
+  <!-- <WatchEffect></WatchEffect> -->
+  <!-- <div>
+    <button @click="isShow = !isShow">控制LifeCycle显影</button>
+    <LifeCycle v-if="isShow"></LifeCycle>
+  </div> -->
+  <div>
+    <button @click="isShow = !isShow">控制MousePosition显影</button>
+    <MousePosition v-if="isShow"></MousePosition>
+  </div>
+  
 </template>
 
-<script>  
+<script>
 import Computed from "./components/Computed.vue";
 import Watch from "./components/Watch.vue";
 import WatchEffect from "./components/WatchEffect.vue";
+import LifeCycle from "./components/LifeCycle.vue";
+import MousePosition from "./components/MousePosition.vue";
 
+import { ref } from "vue";
 export default {
   name: "App",
-  components: { 
+  components: {
     Computed,
     Watch,
-    WatchEffect
+    WatchEffect,
+    LifeCycle,
+    MousePosition,
+  },
+  setup() {
+    let isShow = ref(true);
+
+    return { isShow };
   },
 };
 </script>
