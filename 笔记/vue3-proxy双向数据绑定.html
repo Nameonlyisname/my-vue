@@ -6,14 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
   <body>
     <script>
+      // Reflect.xxx 本身返回一个布尔值 可进行判断
+      // defineProperty重复监听阻断进程 需使用try catch配合
       const data = {
         name: "工具人",
         age: 1,
       };
 
-      const cloneData=new Proxy(data,{})
+      const cloneData = new Proxy(data, {
+        get(target, propName) {
+          console.log(`读取了源数据中${propName}`, target);
+          // return target[propName];
+          // console.log(Reflect.get(target, propName));
+          return Reflect.get(target, propName);
+        },
+        set(target, propName, value) {
+          console.log(`修改或新增源数据中${propName}为${value}`, target);
+          target[propName] = value;
+          return Reflect.set(target, propName, value);
+        },
+        deleteProperty(target, propName) {
+          console.log(`删除了源数据中${propName}`, target);
+          // return delete target[propName];
+          return Reflect.deleteProperty(target, propName);
+        },
+      });
     </script>
   </body>
 </html>

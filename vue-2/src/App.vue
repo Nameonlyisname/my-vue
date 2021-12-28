@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <!-- <hr />
-    <FormTable />
-    <hr />
+    <!-- <FormTable />
+    <hr /> -->
     <Parent></Parent>
     <hr />
-    <Count></Count> -->
-    <Route></Route>
+    <!-- <Count></Count> 
+    <hr /> -->
+    <!-- <Route></Route> -->
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     Parent,
     Count,
     MySlot,
-    Route
+    Route,
   },
   data() {
     return {

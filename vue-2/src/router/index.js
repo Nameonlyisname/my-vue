@@ -1,6 +1,6 @@
 import VueRouter from "vue-router";
 
-export default new VueRouter({
+const router= new VueRouter({
   mode:"history",
   routes: [
     {

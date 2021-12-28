@@ -1,38 +1,20 @@
-<template>
-  <div>姓名：{{ name }}</div>
-  <div>小说：《{{ story.name }}》——主角：{{ story.prot }}</div>
-  <button @click="handleLog">打印</button>
-  <button @click="changeStory">更改小说信息</button>
+<template> 
+  <!-- <Computed></Computed> -->
+  <!-- <Watch></Watch> -->
+  <WatchEffect></WatchEffect>
 </template>
 
-<script>
-import { ref, reactive } from "vue";
+<script>  
+import Computed from "./components/Computed.vue";
+import Watch from "./components/Watch.vue";
+import WatchEffect from "./components/WatchEffect.vue";
+
 export default {
   name: "App",
-  setup(props) {
-    // ref用于基本数据
-    //reactive用于对象
-    let name = ref("？？？");
-    let story = reactive({
-      name: "天启预报",
-      prot: "槐诗",
-    });
-
-    function handleLog() {
-      console.log(name, story);
-    }
-
-    function changeStory() {
-      story.name = "从红月开始";
-      story.prot = "单兵";
-    }
-
-    return {
-      name,
-      story,
-      handleLog,
-      changeStory,
-    };
+  components: { 
+    Computed,
+    Watch,
+    WatchEffect
   },
 };
 </script>
