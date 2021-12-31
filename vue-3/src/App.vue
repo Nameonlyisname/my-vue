@@ -6,10 +6,11 @@
     <button @click="isShow = !isShow">控制LifeCycle显影</button>
     <LifeCycle v-if="isShow"></LifeCycle>
   </div> -->
-  <div>
+  <!-- <div>
     <button @click="isShow = !isShow">控制MousePosition显影</button>
     <MousePosition v-if="isShow"></MousePosition>
-  </div>
+  </div> -->
+  <ToRef></ToRef>
   
 </template>
 
@@ -19,6 +20,7 @@ import Watch from "./components/Watch.vue";
 import WatchEffect from "./components/WatchEffect.vue";
 import LifeCycle from "./components/LifeCycle.vue";
 import MousePosition from "./components/MousePosition.vue";
+import ToRef from "./components/ToRef.vue";
 
 import { ref } from "vue";
 export default {
@@ -29,6 +31,7 @@ export default {
     WatchEffect,
     LifeCycle,
     MousePosition,
+    ToRef,
   },
   setup() {
     let isShow = ref(true);

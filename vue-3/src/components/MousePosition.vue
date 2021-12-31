@@ -3,27 +3,11 @@
 </template>
 
 <script>
-import { onBeforeUnmount, onMounted, reactive } from "vue";
+import usePosition from "../hooks/usePosition";
 export default {
   name: "MousePosition",
   setup() {
-    let position = reactive({
-      x: 0,
-      y: 0,
-    });
-
-    function savePoint(e) {
-      console.log(e.pageX, e.pageY);
-      position.x = e.pageX;
-      position.y = e.pageY;
-    }
-    onMounted(() => {
-      window.addEventListener("click", savePoint);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener("click", savePoint);
-    });
+    let position = usePosition();
 
     return { position };
   },
