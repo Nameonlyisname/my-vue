@@ -7,6 +7,8 @@
     <!-- <Count></Count> 
     <hr /> -->
     <!-- <Route></Route> -->
+
+    <Input disabled name="按钮" str="???"></Input>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ import Parent from "./components/Parent.vue";
 import MySlot from "./page/MySlot.vue";
 import Count from "./page/Count.vue";
 import Route from "./page/Route.vue";
+import Input from "./components/Input.vue";
 
 export default {
   name: "App",
@@ -25,6 +28,7 @@ export default {
     Count,
     MySlot,
     Route,
+    Input
   },
   data() {
     return {

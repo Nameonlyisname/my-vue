@@ -1,17 +1,29 @@
 <template>
   <!-- <Computed></Computed> -->
+
   <!-- <Watch></Watch> -->
+
   <!-- <WatchEffect></WatchEffect> -->
+
+  <!-- <ToRef></ToRef> -->
+
+  <!-- <MyRef></MyRef> -->
+
   <!-- <div>
     <button @click="isShow = !isShow">控制LifeCycle显影</button>
     <LifeCycle v-if="isShow"></LifeCycle>
   </div> -->
+
   <!-- <div>
     <button @click="isShow = !isShow">控制MousePosition显影</button>
     <MousePosition v-if="isShow"></MousePosition>
   </div> -->
-  <ToRef></ToRef>
-  
+
+  <div class="grdParent">
+    <h3>App（祖）</h3>
+    <h4>车：{{ car.name }}——车价：{{ car.price }}</h4>
+    <Parent></Parent>
+  </div>
 </template>
 
 <script>
@@ -21,8 +33,10 @@ import WatchEffect from "./components/WatchEffect.vue";
 import LifeCycle from "./components/LifeCycle.vue";
 import MousePosition from "./components/MousePosition.vue";
 import ToRef from "./components/ToRef.vue";
+import MyRef from "./components/myRef.vue";
+import Parent from "./components/Provide-Inject/Parent.vue";
 
-import { ref } from "vue";
+import { provide, reactive, toRefs } from "vue";
 export default {
   name: "App",
   components: {
@@ -32,11 +46,21 @@ export default {
     LifeCycle,
     MousePosition,
     ToRef,
+    MyRef,
+    Parent,
   },
   setup() {
-    let isShow = ref(true);
+    let data = reactive({
+      isShow: true,
+      car: {
+        name: "五菱",
+        price: "4w",
+      },
+    });
 
-    return { isShow };
+    provide("car", data.car);
+
+    return { ...toRefs(data) };
   },
 };
 </script>
@@ -49,5 +73,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.grdParent {
+  width: 400px;
+  margin: auto;
+  background: skyblue;
+  padding: 10px;
 }
 </style>
