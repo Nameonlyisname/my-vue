@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #app {
+        width: 8rem;
+        /* width: 100vw; */
+        height: 1rem;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // window.onload = function () {
+      //   let html = document.querySelector("html");
+      //   let clientWidth = document.documentElement.clientWidth;
+      //   html.style.fontSize = clientWidth / 16 + "px";
+      // };
+      // window.onresize = function () {
+      //   let html = document.querySelector("html");
+      //   let clientWidth = document.documentElement.clientWidth;
+      //   html.style.fontSize = clientWidth / 16 + "px";
+      // };
+
+      (function () {
+        let styleNode = document.createElement("style");
+        let w = document.documentElement.clientWidth / 16;
+        styleNode.innerHTML = `html{font-size:${w}px!important}`;
+        document.head.appendChild(styleNode);
+      })();
+    </script>
+  </body>
+</html>
