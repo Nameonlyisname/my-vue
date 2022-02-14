@@ -8,7 +8,7 @@
 <script>
 export default {
   mounted() {
-    console.log(this.$attrs);
+    // console.log("$attrs传值",this.$attrs);
   },
 };
 </script>

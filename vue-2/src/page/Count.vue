@@ -57,7 +57,6 @@ export default {
     ...mapActions("countStore", ["incrementOdd", "incrementWait"]),
   },
   mounted() {
-    console.log(this.$store);
   },
 };
 </script>

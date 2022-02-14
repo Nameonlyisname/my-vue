@@ -2,13 +2,14 @@
   <div id="app">
     <!-- <FormTable />
     <hr /> -->
-    <Parent></Parent>
-    <hr />
-    <!-- <Count></Count> 
+    <!-- <Parent></Parent>
     <hr /> -->
-    <!-- <Route></Route> -->
+    <Count></Count> 
+    <hr />
+    <Route></Route>
 
-    <Input disabled name="按钮" str="???"></Input>
+    <!-- $attrs传值 -->
+    <!-- <Input disabled name="按钮" str="???"></Input> -->
   </div>
 </template>
 

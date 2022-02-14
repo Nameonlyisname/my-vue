@@ -1,4 +1,5 @@
 import VueRouter from "vue-router";
+import store from "../store";
 
 const router= new VueRouter({
   mode:"history",
@@ -57,6 +58,7 @@ const router= new VueRouter({
 router.beforeEach((to, from, next) => {
   console.log(to);
   console.log(from);
+  console.log(store.state.countStore.sum);
   next();
 });
 
