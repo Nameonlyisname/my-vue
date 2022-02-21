@@ -4,12 +4,18 @@
     <hr /> -->
     <!-- <Parent></Parent>
     <hr /> -->
-    <Count></Count> 
-    <hr />
-    <Route></Route>
+    <!-- <Count></Count> 
+    <hr /> -->
+    <!-- <Route></Route>
+    <hr /> -->
+    <!-- <MySlot></MySlot> -->
 
     <!-- $attrs传值 -->
     <!-- <Input disabled name="按钮" str="???"></Input> -->
+
+    <Scroll>
+      <div v-for="i in 100" :key="i">{{ i }}</div>
+    </Scroll>
   </div>
 </template>
 
@@ -20,6 +26,7 @@ import MySlot from "./page/MySlot.vue";
 import Count from "./page/Count.vue";
 import Route from "./page/Route.vue";
 import Input from "./components/Input.vue";
+import Scroll from "./components/Scroll.vue";
 
 export default {
   name: "App",
@@ -29,14 +36,10 @@ export default {
     Count,
     MySlot,
     Route,
-    Input
+    Input,
+    Scroll,
   },
-  data() {
-    return {
-      foods: ["白菜", "青菜", "蔬菜"],
-      cars: ["奔驰", "奥迪", "法拉利"],
-    };
-  },
+ 
 };
 </script>
 

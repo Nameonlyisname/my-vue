@@ -51,10 +51,16 @@ import MySlot1 from "../components/MySlot/MySlot1.vue"; //默认插槽
 import MySlot2 from "../components/MySlot/MySlot2.vue"; //具名插槽
 import MySlot3 from "../components/MySlot/MySlot3.vue"; //作用域插槽
 export default {
-  comments: {
+  components : {
     MySlot1,
     MySlot2,
     MySlot3,
+  },
+   data() {
+    return {
+      foods: ["白菜", "青菜", "蔬菜"],
+      cars: ["奔驰", "奥迪", "法拉利"],
+    };
   },
 };
 </script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>参考mustache库的手写模板引擎</title>
+  </head>
+  <body>
+    <script>
+      let templateStr =
+        "<h1>我买了一个{{thing}},花了{{money}},好{{status}}</h1>";
+      let data = {
+        thing: "手机",
+        money: "110",
+        status: "激动",
+      };
+
+      // 最简单的模板引擎的原理
+      function render(templateStr, data) {
+        return templateStr.replace(/\{\{(\w+)\}\}/g, function (findStr, $1) {
+          return data[$1];
+        });
+      }
+      let result = render(templateStr, data);
+      console.log(result);
+    </script>
+  </body>
+</html>
