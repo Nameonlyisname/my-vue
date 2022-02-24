@@ -4,12 +4,19 @@ const frameIn = [
     component: () => import("../components/layout"),
     children: [
       {
-        path: "/home",
+        path: "home",
         name: "Home",
         meta: {
           title: "首页",
         },
         component: () => import("../views/Home"),
+      },
+      {
+        path: "home",
+        name: "Home",
+        meta: {
+          title: "其他",
+        },
       },
     ],
   },
@@ -36,6 +43,6 @@ const errorPages = [
   },
 ];
 
-export { frameIn };
+export const menuList=frameIn;
 
 export default [...frameIn, ...frameOut, ...errorPages];

@@ -1,21 +1,13 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger">
+  <a-layout class="layout">
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
-      <div class="logo">XXXX</div>
-      <!-- <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-        <a-menu-item key="1">
-          <a-icon type="user" />
-          <span>nav 1</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <a-icon type="video-camera" />
-          <span>nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <a-icon type="upload" />
-          <span>nav 3</span>
-        </a-menu-item>
-      </a-menu> -->
+      <div class="title">admin</div>
+      <div class="user">
+        <img :src="url" alt="用户头像" />
+        <p>欢迎，{{ userInfo.name }}</p>
+        <p>{{test}}</p>
+      </div>
+      <!-- <Menu></Menu> -->
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -39,16 +31,29 @@
   </a-layout>
 </template>
 <script>
+import { mapState,mapGetters } from "vuex";
+import Menu from "./menu";
 export default {
+  name: "Layout",
+  components:{
+    Menu
+  },
   data() {
     return {
       collapsed: false,
     };
   },
+  computed: {
+    ...mapState("admin/user", ["userInfo"]),
+    ...mapGetters("admin/user",["test"]),
+    url() {
+      return require("@/assets/" + this.userInfo.url);
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
-#components-layout-demo-custom-trigger {
+.layout {
   width: 100%;
   height: 100%;
   .trigger {
@@ -61,12 +66,23 @@ export default {
       color: #1890ff;
     }
   }
-  .logo {
-    line-height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
-    color: orange;
+  .title {
+    font-size: 16px;
+    color: white;
     text-align: center;
+    line-height: 50px;
+  }
+  .user {
+    color: white;
+    text-align: center;
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    p {
+      margin: 5px;
+    }
   }
 }
 </style>
