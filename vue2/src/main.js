@@ -4,6 +4,7 @@ import router from "./router";
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import store from "./store";
+import allMenu from "./menu";
 
 Vue.use(Antd);
 
@@ -13,11 +14,15 @@ new Vue({
   store,
   render: (h) => h(App),
   watch: {
-    $route() {
-      this.$store.dispatch("admin/user/setUser", {
-        url: "avatar.png",
-        name: "起啥名字好",
-      });
-    },
+    $route() {},
+  },
+  beforeCreate() {
+    let userInfo = {
+      url: "avatar.png",
+      name: "起啥名字好",
+      access: ["admin"],
+    };
+    this.$store.commit("admin/user/setUserInfo", userInfo);
+    this.$store.commit("admin/menu/setMenu", allMenu);
   },
 }).$mount("#app");

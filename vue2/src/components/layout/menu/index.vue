@@ -1,37 +1,28 @@
 <template>
   <div>
-    <a-menu mode="inline" :default-selected-keys="['1']">
-      <a-menu-item v-for="(o, i) in menu.children" :key="i">
-        <span>{{ o.meta.title }}</span>
-      </a-menu-item>
-
-      <!-- <a-menu-item key="1">
-        <a-icon type="user" />
-        <span>nav 1</span>
-      </a-menu-item>
-      <a-menu-item key="2">
-        <a-icon type="video-camera" />
-        <span>nav 2</span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <a-icon type="upload" />
-        <span>nav 3</span>
-      </a-menu-item> -->
+    <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
+      <a-sub-menu v-for="(o, i) in realMenu" :key="i">
+        <span slot="title">
+          <a-icon type="home" />
+          <span>{{ o.title }}</span>
+        </span>
+        <a-menu-item v-for="(c, n) in o.children" :key="`${i}-${n}`">
+          {{ c.title }}
+        </a-menu-item>
+      </a-sub-menu>
     </a-menu>
   </div>
 </template>
 
 <script>
-
+import { mapGetters } from "vuex";
 export default {
   name: "Menu",
   data() {
-    return {
-      
-    };
+    return {};
   },
   computed: {
-    
+    ...mapGetters("admin/menu", ["realMenu"]),
   },
 };
 </script>

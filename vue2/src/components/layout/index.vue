@@ -5,9 +5,8 @@
       <div class="user">
         <img :src="url" alt="用户头像" />
         <p>欢迎，{{ userInfo.name }}</p>
-        <p>{{test}}</p>
       </div>
-      <!-- <Menu></Menu> -->
+      <Menu></Menu>
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -31,7 +30,7 @@
   </a-layout>
 </template>
 <script>
-import { mapState,mapGetters } from "vuex";
+import { mapState } from "vuex";
 import Menu from "./menu";
 export default {
   name: "Layout",
@@ -45,7 +44,6 @@ export default {
   },
   computed: {
     ...mapState("admin/user", ["userInfo"]),
-    ...mapGetters("admin/user",["test"]),
     url() {
       return require("@/assets/" + this.userInfo.url);
     },
