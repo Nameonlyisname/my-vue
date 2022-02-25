@@ -1,14 +1,17 @@
 function filterMenu(menuList, access, result = []) {
   menuList.forEach((menu) => {
     let newMenu = {};
+    let menuKeys = Object.keys(menu);
     for (let k in menu) {
-      if (k !== "children") {
+      if (
+        k !== "children" &&
+        (!menuKeys.includes("access") || includeArray(menu.access, access))
+      ) {
         newMenu[k] = JSON.parse(JSON.stringify(menu[k]));
       }
     }
-    console.log(newMenu);
     if (menu.children && menu.children.length) newMenu.children = [];
-    result.push(newMenu);
+    Object.keys(newMenu).length && result.push(newMenu);
     menu.children && filterMenu(menu.children, access, newMenu.children);
   });
   return result;

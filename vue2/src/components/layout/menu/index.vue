@@ -24,6 +24,9 @@ export default {
   computed: {
     ...mapGetters("admin/menu", ["realMenu"]),
   },
+  mounted() {
+    console.log(this.realMenu)
+  },
 };
 </script>
 
