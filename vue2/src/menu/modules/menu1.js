@@ -1,20 +1,34 @@
 const pre = "/menu1/";
 export default {
   path: "/menu1",
-  title: "一级菜单1",
-  header: "home",
+  name: "menu1",
+  title: "1",
   children: [
     {
       path: `${pre}item1`,
-      title: "二级菜单1",
+      name: "item1",
+      title: "1-1",
+      children: [
+        {
+          path: `${pre}item1/i1`,
+          title: "1-1-1",
+        },
+        {
+          path: `${pre}item1/i2`,
+          title: "1-1-2",
+        },
+      ],
     },
     {
       path: `${pre}item2`,
-      title: "二级菜单2",
+      name: "item2",
+      title: "1-2",
+      access: ["user"],
     },
     {
-      path: `${pre}item2`,
-      title: "二级菜单3",
+      path: `${pre}item3`,
+      name: "item3",
+      title: "1-3",
     },
   ],
 };

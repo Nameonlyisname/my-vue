@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import admin from "./modules/admin";
+import admin from "./admin";
 
 Vue.use(Vuex);
 
