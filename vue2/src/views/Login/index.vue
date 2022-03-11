@@ -1,15 +1,19 @@
 <template>
-  <div>
-      登录
+  <div class="main">
+    
   </div>
 </template>
 
 <script>
 export default {
-    name:"Login"
-}
+  name: "Login",
+};
 </script>
 
-<style>
-
+<style scoped>
+.main {
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/svg/body.svg");
+}
 </style>

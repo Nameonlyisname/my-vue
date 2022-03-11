@@ -17,12 +17,6 @@ new Vue({
     $route() {},
   },
   beforeCreate() {
-    let userInfo = {
-      url: "avatar.png",
-      name: "起啥名字好",
-      access: ["admin"],
-    };
-    this.$store.commit("admin/user/setUserInfo", userInfo);
     this.$store.commit("admin/menu/setMenu", allMenu);
   },
 }).$mount("#app");
