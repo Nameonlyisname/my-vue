@@ -11,5 +11,6 @@ import home from "./modules/home";
 import error from "./modules/error";
 import menu1 from "./modules/menu1";
 import menu2 from "./modules/menu2";
+import mycomponents from "./modules/mycomponents";
 
-export default [home, menu1, menu2, error];
+export default [home, menu1, menu2, error, mycomponents];

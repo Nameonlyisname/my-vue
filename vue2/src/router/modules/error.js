@@ -1,12 +1,12 @@
 export default {
   path: "error",
   name: "Error",
-  component: () => import("../../views/Error"),
+  component: () => import("../../components/common/show.vue"),
   children: [
     {
       path: "4xx",
       name: "4xx",
-      component: () => import("../../views/Error"),
+      component: () => import("../../components/common/show.vue"),
       children:[
         {
           path: "404",

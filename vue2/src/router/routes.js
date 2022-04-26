@@ -1,14 +1,16 @@
 import home from "./modules/home";
 import error from "./modules/error";
+import mycomponents from "./modules/mycomponents";
 
 const frameIn = [
   {
     path: "/",
-    redirect:'home',
+    redirect: "home",
     component: () => import("../components/layout"),
-    children: [home, error],
+    children: [home, error, mycomponents],
   },
 ];
+
 const frameOut = [
   {
     path: "/login",

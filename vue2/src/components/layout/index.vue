@@ -15,7 +15,6 @@
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="() => (collapsed = !collapsed)"
         />
-        
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -35,8 +34,8 @@ import { mapState } from "vuex";
 import Menu from "./menu";
 export default {
   name: "Layout",
-  components:{
-    Menu
+  components: {
+    Menu,
   },
   data() {
     return {
@@ -46,7 +45,7 @@ export default {
   computed: {
     ...mapState("admin/user", ["userInfo"]),
     url() {
-      return require("@/assets/" + this.userInfo.url);
+      return require(`@/assets/img/${this.userInfo.url}.png`);
     },
   },
 };
