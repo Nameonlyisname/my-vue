@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    userInfo: JSON.parse(localStorage.getItem("userInfo")) || {},
+    userInfo: JSON.parse(localStorage.getItem("userInfo")) || undefined,
   },
   mutations: {
     setUserInfo(state, value) {

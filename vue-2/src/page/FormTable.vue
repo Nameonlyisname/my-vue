@@ -19,15 +19,18 @@
 
       <div>
         爱好:
-        <span
-          >学习<input type="checkbox" v-model="userInfo.hobby" value="study"
-        /></span>
-        <span
-          >打游戏<input type="checkbox" v-model="userInfo.hobby" value="game"
-        /></span>
-        <span
-          >吃饭<input type="checkbox" v-model="userInfo.hobby" value="eat"
-        /></span>
+        <span>
+          学习
+          <input type="checkbox" v-model="userInfo.hobby" value="study" />
+        </span>
+        <span>
+          打游戏
+          <input type="checkbox" v-model="userInfo.hobby" value="game" />
+        </span>
+        <span>
+          吃饭
+          <input type="checkbox" v-model="userInfo.hobby" value="eat" />
+        </span>
       </div>
 
       <div>
