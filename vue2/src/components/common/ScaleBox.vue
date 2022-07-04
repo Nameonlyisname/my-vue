@@ -19,7 +19,7 @@ export default {
     return {
       scale: 0,
       width: 1920,
-      height: 1080,
+      height: 937,
     };
   },
   mounted() {
@@ -32,7 +32,7 @@ export default {
       const { width, height } = this;
       const wh = window.innerHeight / height;
       const ww = window.innerWidth / width;
-      console.log(ww < wh ? ww : wh);
+      console.log(ww, wh);
       return ww < wh ? ww : wh;
     },
     setScale() {
@@ -40,7 +40,8 @@ export default {
       this.scale = this.getScale();
       if (this.$refs.ScaleBox) {
         // this.$refs.ScaleBox.style.setProperty("--scale", this.scale);
-        console.log(this.$refs.ScaleBox.style);
+
+        this.$refs.ScaleBox.style.transform = `scale:(${this.scale})`;
       }
     },
     debounce(fn, delay) {
@@ -65,13 +66,10 @@ export default {
 <style lang="less" scoped>
 @defaultScale: 1;
 .ScaleBox {
-  position: absolute;
-  // transform: scale(@defaultScale) translate(-50%, -50%);
+  transform: scale(@defaultScale);
   display: flex;
   flex-direction: column;
-  transform-origin: 0 0;
-  left: 50%;
-  top: 50%;
+  transform-origin: center;
   transition: 0.3s;
   z-index: 999;
 }
