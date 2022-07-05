@@ -30,22 +30,18 @@ export default {
     getScale() {
       // 固定好16：9的宽高比，计算出最合适的缩放比
       const { width, height } = this;
-      const wh = window.innerHeight / height;
       const ww = window.innerWidth / width;
-      console.log(ww, wh);
+      const wh = window.innerHeight / height;
       return ww < wh ? ww : wh;
     },
     setScale() {
       // 获取到缩放比例，设置它
       this.scale = this.getScale();
       if (this.$refs.ScaleBox) {
-        // this.$refs.ScaleBox.style.setProperty("--scale", this.scale);
-
         this.$refs.ScaleBox.style.transform = `scale:(${this.scale})`;
       }
     },
-    debounce(fn, delay) {
-      const delays = delay || 500;
+    debounce(fn, delay = 500) {
       let timer;
       return function () {
         const th = this;
@@ -56,7 +52,7 @@ export default {
         timer = setTimeout(function () {
           timer = null;
           fn.apply(th, args);
-        }, delays);
+        }, delay);
       };
     },
   },
@@ -70,7 +66,6 @@ export default {
   display: flex;
   flex-direction: column;
   transform-origin: center;
-  transition: 0.3s;
   z-index: 999;
 }
 </style>
